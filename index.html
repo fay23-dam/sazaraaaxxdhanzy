@@ -144,6 +144,8 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:52px 14px
   padding:2px 8px;border-radius:10px;flex-shrink:0}
 .gc-badge.g{color:var(--accent);background:var(--acdim)}
 .gc-badge.b{color:var(--blue);background:rgba(80,160,230,.1)}
+.gc-badge.new{color:#ff7eb3;background:rgba(255,126,179,.1);border:1px solid rgba(255,126,179,.2);animation:nblink 2s ease infinite}
+@keyframes nblink{0%,100%{opacity:1}50%{opacity:.55}}
 
 /* toggle show features */
 .gc-toggle{width:100%;background:none;border:none;padding:11px 16px;
@@ -176,6 +178,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:52px 14px
 .badge.g{color:var(--accent);background:var(--acdim)}
 .badge.b{color:var(--blue);background:rgba(80,160,230,.1)}
 .badge.w{color:var(--warn);background:rgba(220,171,50,.1)}
+.badge.p{color:#ff7eb3;background:rgba(255,126,179,.1)}
 .chev{width:14px;height:14px;flex-shrink:0;color:var(--dim);transition:transform .22s}
 .feat-item.op .chev{transform:rotate(180deg)}
 .fbody{max-height:0;overflow:hidden;transition:max-height .26s ease}
@@ -298,6 +301,7 @@ footer .hl{color:var(--accent)}
         <span class="gs">🐟 Empang Indo</span>
         <span class="gs">🌾 Sawah Indo</span>
         <span class="gs">🔤 Sambung Kata</span>
+        <span class="gs">✏️ Lengkapi Kata</span>
       </div>
     </div>
   </div>
@@ -474,7 +478,6 @@ footer .hl{color:var(--accent)}
       </button>
       <div class="gcard-body">
         <ul class="feat-list">
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge g">AUTO</span>Auto Jawab Smart</div>
@@ -482,7 +485,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Bot otomatis cari kata terbaik berdasarkan ranking skor dari wordlist 50.000+ kata. Delay ketik bisa dikustom (min/max ms) agar terlihat natural. Retry otomatis hingga 6x jika kata gagal atau ditolak.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge g">COMPE</span>Compe Mode + Trap Endings</div>
@@ -490,7 +492,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Mode kompetitif: bot sengaja pilih kata yang berakhiran sulit seperti "eo", "ea", "lt", "mp", "rp" dll agar lawan kehabisan opsi. Bisa pilih beberapa trap ending sekaligus dari dropdown multi-select.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge g">PUSH INDEX</span>Prioritas Kata Baru</div>
@@ -498,7 +499,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Bot cek index koleksi kata kamu di server. Aktifkan Push Index → bot HANYA cari kata yang belum ada di koleksimu, sehingga setiap giliran menambah koleksi baru. Kata lama jadi fallback.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge b">SELECT</span>Select Word GUI</div>
@@ -506,7 +506,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Mode pilih kata manual: muncul GUI draggable berisi daftar kata yang cocok saat giliran kamu. Klik kata → langsung diketik dan dikirim otomatis. Kata baru (belum di index) tampil duluan dengan warna hijau.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge b">TYPO SIM</span>Human Typo Simulation</div>
@@ -514,7 +513,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Bot sesekali salah ketik huruf tetangga di keyboard (20% chance per kata) lalu backspace dan koreksi. Membuat bot terlihat seperti manusia yang mengetik sungguhan, bukan bot sempurna.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge g">AUTO JOIN</span>Auto Join Meja</div>
@@ -522,7 +520,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Otomatis scan dan masuk meja yang tersedia sesuai mode yang dipilih: 2P, 4P, atau 8P — bisa multi-pilih. Bot prioritaskan meja yang hampir penuh. Jika lawan keluar, bot ikut leave dan cari meja baru.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge g">REMATCH</span>Auto Rematch</div>
@@ -530,7 +527,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Setelah match selesai, bot otomatis kembali join ke meja yang sama. Nama meja di-snapshot saat match mulai, dipakai ulang dengan retry loop hingga 10 detik jika meja belum siap.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge w">BLACKLIST</span>Blacklist Kata Manual</div>
@@ -538,7 +534,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Tambah kata tertentu ke daftar blacklist permanen — bot tidak akan pernah menggunakan kata tersebut. Ada juga blacklist otomatis sementara per match untuk kata yang ditolak server atau menyebabkan hit.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge w">AFK</span>Anti-AFK Multi-Method</div>
@@ -546,7 +541,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">5 metode sekaligus: VirtualUser, VirtualInputManager (tekan spasi), gerak karakter mikro, mouse1click, dan keypress fallback. Aktif saat event Idled + periodic tiap 10 menit sebagai backup.</p></div>
           </li>
-
           <li class="feat-item">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge w">CONFIG</span>Save / Load Konfigurasi</div>
@@ -554,7 +548,6 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Semua setting (delay, mode, blacklist, dll) bisa disimpan ke file JSON di executor dan dimuat kembali otomatis saat script dijalankan. Jika executor tidak support file I/O, config di-export ke clipboard.</p></div>
           </li>
-
           <li class="feat-item" style="border:none">
             <button class="ftrig" onclick="tf(this)">
               <div class="fleft"><span class="badge b">EXTRA</span>Teleport + Keybind UI</div>
@@ -562,10 +555,51 @@ footer .hl{color:var(--accent)}
             </button>
             <div class="fbody"><p class="fdesc">Teleport satu klik ke Papan Hadiah (Papan13). Keybind buka/tutup UI bisa diubah sendiri. UI menggunakan WindUI dengan tag versi, toggle notifikasi, dan tombol Discord/WA di tab About.</p></div>
           </li>
-
         </ul>
       </div>
     </div>
+
+    <!-- LENGKAPI KATA -->
+    <div class="gcard" id="card-lengkapi">
+      <div class="gcard-head">
+        <div class="gc-ico">✏️</div>
+        <div class="gc-info">
+          <div class="gc-title">Lengkapi Kata</div>
+          <div class="gc-sub">// Auto Ketik · Instant Answer · Server Hop</div>
+        </div>
+        <div class="gc-badge g">NEW</div>
+      </div>
+      <button class="gc-toggle" onclick="toggleCard('card-lengkapi')">
+        <span>lihat fitur</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="gcard-body">
+        <ul class="feat-list">
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO KETIK</span>Auto Ketik Jawaban</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Bot otomatis mendeteksi soal yang muncul, mencari jawaban dari database kata, lalu mengetik dan mengirim jawaban secara otomatis. Delay ketik bisa dikustom agar terlihat natural dan tidak terlalu cepat.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge p">INSTANT</span>Instant Answer</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Mode jawab instan: bot menjawab soal secepat mungkin begitu soal muncul tanpa delay tambahan. Cocok untuk grinding poin maksimal. Bisa dimatikan untuk mode natural yang lebih aman.</p></div>
+          </li>
+          <li class="feat-item" style="border:none">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">HOP</span>Hop Server Ketika Sepi</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Auto deteksi server sepi (jumlah pemain di bawah threshold yang bisa dikustom). Jika server terlalu sepi, bot otomatis pindah ke server lain yang lebih ramai agar permainan terus berjalan lancar.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end LENGKAPI KATA -->
 
   </div>
   <!-- end gcards -->
@@ -613,7 +647,6 @@ function toggleCard(id) {
   var card = document.getElementById(id);
   if (!card) return;
   var isOpen = card.classList.contains('op');
-  // tutup semua
   document.querySelectorAll('.gcard.op').forEach(function(c){ c.classList.remove('op'); });
   if (!isOpen) card.classList.add('op');
 }
