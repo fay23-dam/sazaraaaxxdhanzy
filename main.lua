@@ -1,1 +1,15 @@
-yoo
+local games = {
+    [121864768012064] = "https://raw.githubusercontent.com/MajestySkie/Chloe-X/refs/heads/main/Games/FishIt.lua",
+    [127794225497302] = "https://raw.githubusercontent.com/MajestySkie/Chloe-X/refs/heads/main/Games/Abyss.lua",
+    [130594398886540] = "https://raw.githubusercontent.com/MajestySkie/Chloe-X/refs/heads/main/Games/GardenHorizon.lua",
+    [83369512629707] = "https://raw.githubusercontent.com/MajestySkie/Chloe-X/refs/heads/main/Games/SawahIndo.lua",
+}
+
+local currentID = game.PlaceId
+local scriptURL = games[currentID]
+
+if scriptURL then
+    loadstring(game:HttpGet(scriptURL))()
+else
+    game.Players.LocalPlayer:Kick("Yo! This game ain't on the list.\nCheck the Discord for whitelisted games, homie.")
+end
