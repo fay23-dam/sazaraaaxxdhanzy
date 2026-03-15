@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Victoria Script</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0f11;--surface:#141618;--elevated:#1c1f22;--border:#262b30;
+  --accent:#34c76d;--acdim:#0f2a1a;--text:#dae0da;--dim:#5f6c66;
+  --warn:#dcab32;--blue:#50a0e6;--tag:#ffb937;--tagdim:#2a1e06;
+  --r:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.022;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(52,199,109,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(52,199,109,.03) 1px,transparent 1px);
+  background-size:48px 48px;animation:gd 20s linear infinite}
+@keyframes gd{to{transform:translateY(48px)}}
+
+.bg-glow{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(52,199,109,.09) 0%,transparent 65%);
+  top:-180px;left:50%;transform:translateX(-50%);animation:gp 7s ease-in-out infinite}
+@keyframes gp{0%,100%{opacity:.7;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.05)}}
+
+/* ── HEADER ── */
+header{position:sticky;top:0;z-index:100;height:52px;padding:0 18px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(13,15,17,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);animation:sd .45s ease both}
+@keyframes sd{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+
+.logo{display:flex;align-items:center;gap:8px;min-width:0}
+.logo-tilde{font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;color:var(--accent);flex-shrink:0}
+.logo-name{font-size:13px;font-weight:800;letter-spacing:-.3px;white-space:nowrap}
+.logo-tag{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:600;
+  color:var(--tag);background:var(--tagdim);padding:2px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+
+.nav{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.nbtn{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:7px;
+  border:1px solid var(--border);background:var(--elevated);color:var(--dim);
+  font-family:'Syne',sans-serif;font-size:11px;font-weight:600;
+  text-decoration:none;transition:all .18s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.nbtn .nd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nbtn.dc{border-color:rgba(88,101,242,.22)}.nbtn.dc .nd{background:#7289da}
+.nbtn.dc:hover,.nbtn.dc:active{color:#7289da;border-color:rgba(88,101,242,.5);background:rgba(88,101,242,.07)}
+.nbtn.wa{border-color:rgba(37,211,102,.22)}.nbtn.wa .nd{background:#25d366}
+.nbtn.wa:hover,.nbtn.wa:active{color:#25d366;border-color:rgba(37,211,102,.5);background:rgba(37,211,102,.07)}
+
+/* ── MAIN ── */
+main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:52px 14px 80px}
+
+/* ── ANIM ── */
+@keyframes fu{from{transform:translateY(18px);opacity:0}to{transform:translateY(0);opacity:1}}
+.a1{animation:fu .6s ease .05s both}
+.a2{animation:fu .6s ease .15s both}
+.a3{animation:fu .6s ease .25s both}
+.a4{animation:fu .6s ease .35s both}
+.a5{animation:fu .6s ease .45s both}
+
+/* ── HERO ── */
+.hero{text-align:center;margin-bottom:44px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;font-weight:500;color:var(--accent);letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:16px;padding:4px 13px;border:1px solid rgba(52,199,109,.18);
+  border-radius:20px;background:rgba(52,199,109,.05)}
+.edot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:bl 2s ease infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.15}}
+.htitle{font-size:clamp(38px,9vw,76px);font-weight:800;line-height:.92;
+  letter-spacing:-2.5px;margin-bottom:10px}
+.htitle .hl{color:var(--accent);position:relative;display:inline-block}
+.htitle .hl::after{content:'';position:absolute;bottom:3px;left:0;right:0;
+  height:3px;background:var(--accent);border-radius:2px;opacity:.28}
+.hsub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);margin-bottom:22px}
+.spill{display:inline-flex;align-items:center;gap:7px;padding:6px 16px;
+  border-radius:30px;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  border:1px solid rgba(52,199,109,.26);background:rgba(52,199,109,.06);color:var(--accent)}
+.ping{width:7px;height:7px;border-radius:50%;background:var(--accent);position:relative}
+.ping::after{content:'';position:absolute;inset:-4px;border-radius:50%;
+  background:var(--accent);opacity:.25;animation:pg 1.6s ease infinite}
+@keyframes pg{0%{transform:scale(1);opacity:.25}100%{transform:scale(2.6);opacity:0}}
+
+/* ── LOADSTRING SINGLE BIG ── */
+.ls-box{background:var(--surface);border:1px solid rgba(52,199,109,.3);
+  border-radius:var(--r);overflow:hidden;margin-bottom:32px;
+  box-shadow:0 0 40px rgba(52,199,109,.07),0 0 0 1px rgba(52,199,109,.08)}
+
+.ls-top{display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;background:var(--elevated);border-bottom:1px solid var(--border)}
+
+.ls-top-left{display:flex;align-items:center;gap:10px}
+.ls-circle{display:flex;gap:5px}
+.lsc{width:10px;height:10px;border-radius:50%}
+.lsc.r{background:#ff5f57}.lsc.y{background:#ffbd2e}.lsc.g{background:var(--accent)}
+
+.ls-top-title{font-size:12px;font-weight:700;color:var(--text)}
+.ls-top-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)}
+
+.cbtn{display:flex;align-items:center;gap:5px;padding:7px 14px;border-radius:7px;
+  border:1px solid rgba(52,199,109,.3);background:rgba(52,199,109,.08);color:var(--accent);
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+  cursor:pointer;transition:all .18s;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation}
+.cbtn:hover,.cbtn:active{background:rgba(52,199,109,.16);border-color:rgba(52,199,109,.5)}
+.cbtn.ok{background:rgba(52,199,109,.18);border-color:rgba(52,199,109,.6)}
+
+.ls-code{padding:20px 18px;font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;line-height:1.8;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.kw{color:var(--blue);font-weight:600}.fn{color:var(--accent)}.str{color:var(--tag)}.cm{color:var(--dim);opacity:.5}
+
+.ls-support{display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding:12px 18px;border-top:1px solid var(--border);background:var(--elevated)}
+.ls-support-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)}
+.ls-support-games{display:flex;gap:6px;flex-wrap:wrap}
+.gs{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;
+  color:var(--accent);background:var(--acdim);padding:2px 8px;border-radius:3px}
+
+/* ── SECTION LABEL ── */
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;
+  color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;padding-left:2px}
+
+/* ── GAME CARDS ── */
+.gcards{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+
+.gcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;transition:border-color .2s,transform .2s}
+.gcard:hover{border-color:rgba(52,199,109,.22);transform:translateY(-1px)}
+
+.gcard-head{display:flex;align-items:center;gap:10px;padding:13px 16px;
+  background:var(--elevated);border-bottom:1px solid var(--border)}
+.gc-ico{font-size:20px;flex-shrink:0}
+.gc-info{flex:1;min-width:0}
+.gc-title{font-size:14px;font-weight:800;letter-spacing:-.3px}
+.gc-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);margin-top:2px}
+.gc-badge{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+  padding:2px 8px;border-radius:10px;flex-shrink:0}
+.gc-badge.g{color:var(--accent);background:var(--acdim)}
+.gc-badge.b{color:var(--blue);background:rgba(80,160,230,.1)}
+
+/* toggle show features */
+.gc-toggle{width:100%;background:none;border:none;padding:11px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;color:var(--dim);font-family:'JetBrains Mono',monospace;
+  font-size:10px;font-weight:500;transition:all .18s;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.gc-toggle:hover,.gc-toggle:active{color:var(--accent);background:rgba(52,199,109,.03)}
+.gc-toggle svg{transition:transform .24s}
+.gcard.op .gc-toggle{color:var(--accent)}
+.gcard.op .gc-toggle svg{transform:rotate(180deg)}
+
+.gcard-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.gcard.op .gcard-body{max-height:1000px}
+
+/* feat list dalam card */
+.feat-list{list-style:none;border-top:1px solid var(--border)}
+.feat-item{border-bottom:1px solid var(--border)}
+.feat-item:last-child{border-bottom:none}
+.ftrig{width:100%;background:none;border:none;padding:11px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;color:var(--text);font-family:'Syne',sans-serif;
+  font-size:12px;font-weight:700;text-align:left;transition:background .14s;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.ftrig:active{background:rgba(52,199,109,.04)}
+.feat-item.op .ftrig{color:var(--accent)}
+.fleft{display:flex;align-items:center;gap:8px;min-width:0}
+.badge{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+  padding:2px 6px;border-radius:3px;flex-shrink:0}
+.badge.g{color:var(--accent);background:var(--acdim)}
+.badge.b{color:var(--blue);background:rgba(80,160,230,.1)}
+.badge.w{color:var(--warn);background:rgba(220,171,50,.1)}
+.chev{width:14px;height:14px;flex-shrink:0;color:var(--dim);transition:transform .22s}
+.feat-item.op .chev{transform:rotate(180deg)}
+.fbody{max-height:0;overflow:hidden;transition:max-height .26s ease}
+.feat-item.op .fbody{max-height:260px}
+.fdesc{margin:0 16px 12px;padding:10px 12px;border-left:2px solid var(--border);
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  color:var(--dim);line-height:1.7;background:var(--elevated);border-radius:0 6px 6px 0}
+.feat-item.op .fdesc{border-color:rgba(52,199,109,.35)}
+
+/* ── SAWERIA ── */
+.saweria-wrap{text-align:center;margin-top:28px}
+.snote{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--dim);margin-bottom:9px}
+.sbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 22px;border-radius:8px;
+  background:rgba(255,185,55,.07);border:1px solid rgba(255,185,55,.2);
+  color:var(--tag);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;
+  text-decoration:none;transition:all .2s;-webkit-tap-highlight-color:transparent}
+.sbtn:hover,.sbtn:active{background:rgba(255,185,55,.13);border-color:rgba(255,185,55,.38);transform:translateY(-1px)}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;text-align:center;padding:22px 14px;
+  border-top:1px solid var(--border);
+  font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
+footer .hl{color:var(--accent)}
+
+/* scrollbar */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:520px){
+  header{padding:0 12px;height:48px}
+  .logo-tag{display:none}
+  .nbtn span{display:none}
+  .nbtn{padding:5px 8px;gap:5px}
+  .nbtn .nd{width:7px;height:7px}
+  main{padding:40px 11px 68px}
+  .htitle{letter-spacing:-1.8px}
+  .ls-code{font-size:11px;padding:14px}
+  .ls-top{padding:12px 14px}
+  .ls-support{padding:10px 14px}
+  .ftrig{font-size:11.5px;padding:10px 14px}
+  .fdesc{margin:0 12px 11px;font-size:10px}
+  .gcard-head{padding:11px 14px}
+  .gc-toggle{padding:10px 14px}
+}
+@media(max-width:360px){
+  .htitle{font-size:34px}
+  .ls-code{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="logo">
+    <div class="logo-tilde">~</div>
+    <div class="logo-name">Victoria Script</div>
+    <div class="logo-tag">by sazaraaax &amp; dhanzy</div>
+  </div>
+  <nav class="nav">
+    <a href="https://discord.gg/HB9gqZGMnT" target="_blank" class="nbtn dc">
+      <div class="nd"></div><span>Discord</span>
+    </a>
+    <a href="https://whatsapp.com/channel/0029VbCBSBOCRs1pRNYpPN0r" target="_blank" class="nbtn wa">
+      <div class="nd"></div><span>WA Channel</span>
+    </a>
+  </nav>
+</header>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- HERO -->
+  <div class="hero a1">
+    <div class="eyebrow"><div class="edot"></div>Roblox Script Hub</div>
+    <h1 class="htitle"><span class="hl">Victoria</span><br>Script</h1>
+    <p class="hsub">// Multi-Game · Auto Farm · Android Ready · by sazaraaax &amp; dhanzy</p>
+    <div class="spill"><div class="ping"></div><span>Semua script aktif &amp; up-to-date</span></div>
+  </div>
+
+  <!-- ── LOADSTRING TUNGGAL ── -->
+  <div class="ls-box a2">
+    <div class="ls-top">
+      <div class="ls-top-left">
+        <div class="ls-circle">
+          <div class="lsc r"></div>
+          <div class="lsc y"></div>
+          <div class="lsc g"></div>
+        </div>
+        <div>
+          <div class="ls-top-title">Universal Loadstring</div>
+          <div class="ls-top-sub">// auto-detect game · satu kode untuk semua</div>
+        </div>
+      </div>
+      <button class="cbtn" id="main-cbtn" onclick="copyMain()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <rect x="9" y="9" width="13" height="13" rx="2"/>
+          <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+        </svg>
+        Salin
+      </button>
+    </div>
+
+    <div class="ls-code">
+<span class="cm">-- Victoria Script | Universal Loader</span><br>
+<span class="cm">-- by sazaraaax &amp; dhanzy</span><br>
+<span class="cm">-- Otomatis detect game dan load script yang sesuai</span><br><br>
+<span class="kw">loadstring</span>(<span class="fn">game</span>:<span class="fn">HttpGet</span>(<br>
+&nbsp;&nbsp;<span class="str">"https://raw.githubusercontent.com/fay23-dam/sazaraaaxxdhanzy/refs/heads/main/main.lua"</span><br>
+))()
+    </div>
+
+    <div class="ls-support">
+      <span class="ls-support-label">Mendukung game:</span>
+      <div class="ls-support-games">
+        <span class="gs">🐟 Empang Indo</span>
+        <span class="gs">🌾 Sawah Indo</span>
+        <span class="gs">🔤 Sambung Kata</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GAME CARDS ── -->
+  <div class="sec-label a3">// Fitur per script</div>
+  <div class="gcards a3">
+
+    <!-- EMPANG INDO -->
+    <div class="gcard" id="card-empang">
+      <div class="gcard-head">
+        <div class="gc-ico">🐟</div>
+        <div class="gc-info">
+          <div class="gc-title">Empang Indo</div>
+          <div class="gc-sub">// Auto Farm Ikan · Kolam Management</div>
+        </div>
+        <div class="gc-badge g">STABLE</div>
+      </div>
+      <button class="gc-toggle" onclick="toggleCard('card-empang')">
+        <span>lihat fitur</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="gcard-body">
+        <ul class="feat-list">
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO FARM</span>Siklus Farm Lengkap</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Beli ikan, cek stok seed sebelum beli (hanya beli kekurangan), tebar ke kolam, equip ember, beli &amp; tebar pelet, tunggu panen, harvest semua, jual otomatis. Siklus berulang terus selama ada ikan di-ON.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">SMART SEED</span>Cek Stok Sebelum Beli</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Cek backpack dulu sebelum beli. Seed Arwana sudah ada 80, set maks 35 → langsung tebar tanpa beli. Seed cuma 20 → beli 15 saja biar genap 35. Hemat koin!</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">QUEUE</span>Antrian Siklus</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Ikan baru yang di-ON saat siklus berjalan masuk antrian dan diproses di siklus berikutnya. Perubahan maks ikan tidak mempengaruhi siklus yang sedang jalan.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">INPUT</span>Custom Maks Ikan</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Tiap ikan punya input angka langsung. Ketik berapa ekor sesuai upgrade kolam — default 20, maksimal 999. Berlaku di siklus berikutnya.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">SELL</span>Auto Sell + Manual</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Setelah harvest selesai, langsung jual semua ikan otomatis. Tersedia juga tombol Jual Semua &amp; Jual per-jenis di tab Fish untuk trigger manual kapanpun.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AFK</span>Anti-AFK Otomatis</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Nyala otomatis saat ada ikan yang di-ON, mati saat semua OFF. Jump tiap 4 menit, VirtualInput key tiap 60 detik, bypass event Idled Roblox.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">INTERACT</span>Instant Interact</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">HoldDuration semua ProximityPrompt di-set ke 0 — tidak perlu tahan lagi. Auto patch realtime untuk setiap prompt baru yang muncul di workspace.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">NOTIF</span>Notifikasi Siap Panen</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Popup slide-in + suara ping saat ikan 100% siap panen. Tidak spam — satu kali per siklus per kolam, reset otomatis saat kolam kosong kembali.</p></div>
+          </li>
+          <li class="feat-item" style="border:none">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">UI</span>Panel Android Optimized</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Drag touch-safe, tombol lebih besar di mobile, tanpa UIStroke berat, panel compact. Minimize, resize, tombol Close. Single instance — execute ulang hapus instance lama otomatis.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SAWAH INDO -->
+    <div class="gcard" id="card-sawah">
+      <div class="gcard-head">
+        <div class="gc-ico">🌾</div>
+        <div class="gc-info">
+          <div class="gc-title">Sawah Indo</div>
+          <div class="gc-sub">// Auto Farm Tanaman · Multi Lahan</div>
+        </div>
+        <div class="gc-badge g">STABLE</div>
+      </div>
+      <button class="gc-toggle" onclick="toggleCard('card-sawah')">
+        <span>lihat fitur</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="gcard-body">
+        <ul class="feat-list">
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO FARM 1</span>Farm Bibit Reguler</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Auto farm Padi, Jagung, Tomat, Terong, Stroberi. Beli benih otomatis, teleport ke posisi tanam, tanam burst, tunggu tumbuh, harvest semua sekaligus, ulangi terus.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO FARM 2</span>Farm Sawit &amp; Durian</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Auto farm khusus Bibit Sawit &amp; Durian di lahan terpisah (PlantLahanCrop remote). Berjalan paralel dengan Farm Auto 1 tanpa konflik, max 5 tanaman per jenis.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">BURST PLANT</span>Tanam Mode Burst</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Tanam 5 bibit sekaligus per burst dengan delay 0.02s antar tanam dan 0.15s antar burst. Jauh lebih cepat dari metode satu per satu biasa.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">VISUAL</span>Visual Area &amp; Harvest Time</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Visual area lingkaran neon di dunia menandai titik tanam. Show Harvest Time tampilkan billboard di atas tiap tanaman: persentase tumbuh dan countdown waktu panen real-time.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">PLANT SETUP</span>Posisi Tanam Fleksibel</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Set Plant Pos [1] untuk farm reguler, Set Plant Pos [2] untuk lahan Sawit/Durian. Mode Saved (pakai posisi tersimpan) atau Current (ikut posisi karakter real-time).</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">SELL</span>Sell All Harvest</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Tombol Sell All menjual semua item hasil panen sekaligus via RequestSell remote. Satu klik bersih semua inventory panen.</p></div>
+          </li>
+          <li class="feat-item" style="border:none">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">EXTRA</span>Anti-AFK &amp; Instant Interact</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Anti-AFK via VirtualUser bypass event Idled. Instant Interact via ProximityPromptService — trigger prompt langsung saat hold dimulai tanpa menunggu selesai.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SAMBUNG KATA -->
+    <div class="gcard" id="card-sambung">
+      <div class="gcard-head">
+        <div class="gc-ico">🔤</div>
+        <div class="gc-info">
+          <div class="gc-title">Sambung Kata</div>
+          <div class="gc-sub">// Auto Bot · Compe Mode · Select Word · Auto Join</div>
+        </div>
+        <div class="gc-badge g">STABLE</div>
+      </div>
+      <button class="gc-toggle" onclick="toggleCard('card-sambung')">
+        <span>lihat fitur</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="gcard-body">
+        <ul class="feat-list">
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO</span>Auto Jawab Smart</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Bot otomatis cari kata terbaik berdasarkan ranking skor dari wordlist 50.000+ kata. Delay ketik bisa dikustom (min/max ms) agar terlihat natural. Retry otomatis hingga 6x jika kata gagal atau ditolak.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">COMPE</span>Compe Mode + Trap Endings</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Mode kompetitif: bot sengaja pilih kata yang berakhiran sulit seperti "eo", "ea", "lt", "mp", "rp" dll agar lawan kehabisan opsi. Bisa pilih beberapa trap ending sekaligus dari dropdown multi-select.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">PUSH INDEX</span>Prioritas Kata Baru</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Bot cek index koleksi kata kamu di server. Aktifkan Push Index → bot HANYA cari kata yang belum ada di koleksimu, sehingga setiap giliran menambah koleksi baru. Kata lama jadi fallback.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">SELECT</span>Select Word GUI</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Mode pilih kata manual: muncul GUI draggable berisi daftar kata yang cocok saat giliran kamu. Klik kata → langsung diketik dan dikirim otomatis. Kata baru (belum di index) tampil duluan dengan warna hijau.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">TYPO SIM</span>Human Typo Simulation</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Bot sesekali salah ketik huruf tetangga di keyboard (20% chance per kata) lalu backspace dan koreksi. Membuat bot terlihat seperti manusia yang mengetik sungguhan, bukan bot sempurna.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO JOIN</span>Auto Join Meja</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Otomatis scan dan masuk meja yang tersedia sesuai mode yang dipilih: 2P, 4P, atau 8P — bisa multi-pilih. Bot prioritaskan meja yang hampir penuh. Jika lawan keluar, bot ikut leave dan cari meja baru.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">REMATCH</span>Auto Rematch</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Setelah match selesai, bot otomatis kembali join ke meja yang sama. Nama meja di-snapshot saat match mulai, dipakai ulang dengan retry loop hingga 10 detik jika meja belum siap.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">BLACKLIST</span>Blacklist Kata Manual</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Tambah kata tertentu ke daftar blacklist permanen — bot tidak akan pernah menggunakan kata tersebut. Ada juga blacklist otomatis sementara per match untuk kata yang ditolak server atau menyebabkan hit.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">AFK</span>Anti-AFK Multi-Method</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">5 metode sekaligus: VirtualUser, VirtualInputManager (tekan spasi), gerak karakter mikro, mouse1click, dan keypress fallback. Aktif saat event Idled + periodic tiap 10 menit sebagai backup.</p></div>
+          </li>
+
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">CONFIG</span>Save / Load Konfigurasi</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Semua setting (delay, mode, blacklist, dll) bisa disimpan ke file JSON di executor dan dimuat kembali otomatis saat script dijalankan. Jika executor tidak support file I/O, config di-export ke clipboard.</p></div>
+          </li>
+
+          <li class="feat-item" style="border:none">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">EXTRA</span>Teleport + Keybind UI</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Teleport satu klik ke Papan Hadiah (Papan13). Keybind buka/tutup UI bisa diubah sendiri. UI menggunakan WindUI dengan tag versi, toggle notifikasi, dan tombol Discord/WA di tab About.</p></div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <!-- end gcards -->
+
+  <!-- SAWERIA -->
+  <div class="saweria-wrap a5">
+    <p class="snote">// Suka scriptnya? Support pengembang 🙏</p>
+    <a href="https://saweria.co/sazaraaa" target="_blank" class="sbtn">☕ &nbsp;Saweria — sazaraaa</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div><span class="hl">Victoria Script</span> · by sazaraaax &amp; dhanzy · 2025</div>
+  <div style="margin-top:4px;opacity:.32">Script hanya untuk keperluan edukasi dan pengujian pribadi.</div>
+</footer>
+
+<script>
+var LS_URL = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/fay23-dam/sazaraaaxxdhanzy/refs/heads/main/main.lua"))()';
+
+function copyMain() {
+  var btn = document.getElementById('main-cbtn');
+  function done() {
+    btn.classList.add('ok');
+    btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Disalin!';
+    setTimeout(function(){
+      btn.classList.remove('ok');
+      btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Salin';
+    }, 2500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(LS_URL).then(done);
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = LS_URL;
+    ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+}
+
+function toggleCard(id) {
+  var card = document.getElementById(id);
+  if (!card) return;
+  var isOpen = card.classList.contains('op');
+  // tutup semua
+  document.querySelectorAll('.gcard.op').forEach(function(c){ c.classList.remove('op'); });
+  if (!isOpen) card.classList.add('op');
+}
+
+function tf(btn) {
+  var item = btn.closest('.feat-item');
+  var wasOpen = item.classList.contains('op');
+  var list = btn.closest('.feat-list');
+  list.querySelectorAll('.feat-item.op').forEach(function(el){ el.classList.remove('op'); });
+  if (!wasOpen) item.classList.add('op');
+}
+</script>
+</body>
+</html>
