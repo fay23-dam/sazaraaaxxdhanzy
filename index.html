@@ -302,6 +302,7 @@ footer .hl{color:var(--accent)}
         <span class="gs">🌾 Sawah Indo</span>
         <span class="gs">🔤 Sambung Kata</span>
         <span class="gs">✏️ Lengkapi Kata</span>
+        <span class="gs">📦 Deadly Delivery</span>
       </div>
     </div>
   </div>
@@ -599,7 +600,90 @@ footer .hl{color:var(--accent)}
         </ul>
       </div>
     </div>
-    <!-- end LENGKAPI KATA -->
+
+    <!-- DEADLY DELIVERY (NEW CARD) -->
+    <div class="gcard" id="card-delivery">
+      <div class="gcard-head">
+        <div class="gc-ico">📦</div>
+        <div class="gc-info">
+          <div class="gc-title">Deadly Delivery</div>
+          <div class="gc-sub">// Auto Farm · Kill Monster · Loot Manager</div>
+        </div>
+        <div class="gc-badge new">NEW</div>
+      </div>
+      <button class="gc-toggle" onclick="toggleCard('card-delivery')">
+        <span>lihat fitur</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="gcard-body">
+        <ul class="feat-list">
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO OPEN</span>Buka Semua Container</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Berjalan ke setiap model InteractiveItem, cari Interactable, tunggu highlight, tekan E. Support skip list (nama model yang diabaikan). Delay bisa diatur (fast/normal/safe).</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO COLLECT</span>Kumpulkan Loot + Filter</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Scan semua item di folder World, teleport ke posisi item, tekan E. Bisa filter nama item tertentu (isi kosong = semua). Cash otomatis dibawa ke base setelah collect.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge p">AUTO MONSTER</span>Serang Monster dengan Bat</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Cek slot 1-4 apakah ada item bernama "bat". Jika ada, aktifkan slot tersebut, cari monster terdekat di folder GameSystem.Monsters, teleport ke kepalanya (fly), klik kiri untuk menyerang. Loop terus sampai dimatikan.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">ESP &amp; RADAR</span>Lihat Loot dari Jauh</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Setiap item loot diberi billboard dengan nama dan jarak. Warna sesuai rarity (Cash hijau, Gift Box pink, dll). Jarak &lt;20 studs hijau, &lt;50 kuning, &gt;50 merah.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">ANTI VOID</span>Noclip &amp; Fall Save</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Jika jatuh di bawah Y=200, langsung dianchor dan ditarik ke base. Noclip otomatis saat fly, semua part character.CanCollide=false, aman menembus benda.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">TELEPORT</span>Base, Loot, NPC, Waypoint</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Tombol cepat: TP ke base (Ground), ke loot terdekat, ke NPC pertama. Bisa simpan waypoint (nama + posisi) dan TP ke sana kapan saja. Semua TP menggunakan fly + noclip sementara.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">KONFIGURASI</span>Delay, Skip List, Filter</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Pilih kecepatan: fast (0.1s), normal (0.2s), safe (0.4s). Skip list untuk auto open (misal "peti" diabaikan). Filter item untuk auto collect (hanya ambil item tertentu).</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">STATS &amp; LOG</span>Hitung Item &amp; Riwayat</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Counter: opened, collected, skipped. Session timer, items/menit. Log aktivitas dengan warna (sukses, skip, error). Bisa di-clear. Semua update realtime.</p></div>
+          </li>
+          <li class="feat-item" style="border:none">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">MOBILE UI</span>Panel Compact &amp; Drag</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">GUI dengan tema gelap, bisa diminimize (hanya header), draggable. Tab: Farm, Stats, Config, Nav. Tombol komunitas (Discord, WA, Saweria) langsung di tab farm. Sepenuhnya touch-friendly.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end DEADLY DELIVERY -->
 
   </div>
   <!-- end gcards -->
