@@ -684,7 +684,83 @@ footer .hl{color:var(--accent)}
       </div>
     </div>
     <!-- end DEADLY DELIVERY -->
-
+ <!-- BRAINROTS MONITOR — NEW -->
+    <div class="gcard" id="card-brainrots">
+      <div class="gcard-head">
+        <div class="gc-ico">🧠</div>
+        <div class="gc-info">
+          <div class="gc-title">Swing for a brainrot</div>
+          <div class="gc-sub">// Auto Collect · Smart Filter · Return to Base</div>
+        </div>
+        <div class="gc-badge new">NEW</div>
+      </div>
+      <button class="gc-toggle" onclick="toggleCard('card-brainrots')">
+        <span>lihat fitur</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="gcard-body">
+        <ul class="feat-list">
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">MONITOR</span>Real-time Brainrot Scanner</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Scans all ServerHitbox parts inside workspace.ActiveBrainrots and displays each brainrot as a card showing name, level, zone, rarity, rank, and SpawnCFrame coordinates. Auto-refreshes every 5 seconds. The left accent bar on each card is colored by rarity.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">FILTER</span>Search, Sort &amp; Zone Filter</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Search brainrots by name, rarity, or mutation in real time. Cycle through all detected zones with the zone filter. Sort by Name (A–Z), Level (highest first), Rarity (rarest first), or Rank (rarest first). Rarity order matches the game source: Divine is rarest, Common is most common.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">TP+E</span>Teleport &amp; Instant Collect</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">One-tap TP+E button on each card: teleports to the brainrot's SpawnCFrame, waits for the interact delay, fires the nearest ProximityPrompt instantly (HoldDuration = 0), then automatically returns to base. No holding E required.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge g">AUTO</span>Auto Collect with Criteria</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Set up to four filter criteria, each with an independent ON/OFF toggle: Min Level, Min Rarity (Common to Divine), Min Rank (Normal to Celestial), and Max Zone. Auto collect loops continuously through all matching brainrots, collects each one, returns to base, then repeats until stopped.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">BASE</span>Save &amp; Return to Base</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Character position is saved automatically when the script loads and again on every respawn. Accessible three ways: the floating base button in the header, buttons in the Community tab, and automatically after every collect. Falls back to SpawnLocation if no base is saved yet.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge b">LOG</span>Live Activity Log</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">The Auto tab includes a scrollable log that records every teleport, collect result, and base return in real time. Entries are colored by rarity — Divine in gold, Mythic in red, and so on. Capped at 60 lines with automatic cleanup.</p></div>
+          </li>
+          <li class="feat-item">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">AFK</span>Anti-AFK &amp; Instant Interact</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Anti-AFK runs automatically via VirtualUser and periodic jumps to bypass Roblox's idle detection. Instant Interact sets HoldDuration to 0 on all ProximityPrompts — including new ones that appear mid-session — so E triggers immediately without holding.</p></div>
+          </li>
+          <li class="feat-item" style="border:none">
+            <button class="ftrig" onclick="tf(this)">
+              <div class="fleft"><span class="badge w">UI</span>Single Instance &amp; Responsive</div>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="fbody"><p class="fdesc">Executing the script twice automatically kills the old instance and all its loops before starting fresh — no duplicate GUIs. UI scales to all screen sizes using a viewport-based scale function. Mobile touch drag supported. Minimize collapses to header only via ClipsDescendants with a smooth tween animation.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+ 
+  </div>
   </div>
   <!-- end gcards -->
 
