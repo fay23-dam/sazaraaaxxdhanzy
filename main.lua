@@ -5,6 +5,7 @@ local games = {
     [103159798148004] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/empang-indo.lua", --empangindo
     [125810438250765] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/deadly-delivers.lua",
     [93044798454681]  = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/deadly-delivers.lua",
+    [114640202062357]  = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/swingforabrainrot.lua",
 }
 
 local currentID = game.PlaceId
