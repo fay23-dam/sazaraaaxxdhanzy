@@ -11,7 +11,9 @@ local games = {
 
 local currentID = game.PlaceId
 local scriptURL = games[currentID]
-
+pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/runner.lua"))()
+end)
 if scriptURL then
     loadstring(game:HttpGet(scriptURL))()
 else
