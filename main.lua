@@ -2,10 +2,10 @@ local games = {
     [114115486822297] = "https://pastefy.app/Ksz9zj49/raw", -- Spin A Lucky Block For Soccer Cards
     [83369512629707] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sawah-indo.lua", -- Sawah Indo
     [72774564502867] = "https://raw.githubusercontent.com/dhannxsazaraxhub/testajamok/refs/heads/main/lengkapi-kata.lua", -- Lengkapi Kata
-    [125810438250765] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/deadly-delivers.lua", -- Deadly Delivery
-    [103159798148004] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/empang-indo.lua", -- Empang Indo
-    [18680867089] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/ultimate-mining-tycoon.lua", -- Ultimate Mining Tycoon
     [114640202062357] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/swingforabrainrot.lua", -- Swing Obby for a Brainrot
+    [18680867089] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/ultimate-mining-tycoon.lua", -- Ultimate Mining Tycoon
+    [103159798148004] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/empang-indo.lua", -- Empang Indo
+    [125810438250765] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/deadly-delivers.lua", -- Deadly Delivery
 }
 
 local currentID = game.PlaceId
