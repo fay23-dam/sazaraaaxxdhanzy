@@ -6,7 +6,7 @@ local games = {
     [18680867089] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/ultimate-mining-tycoon.lua", status = "active" }, -- Ultimate Mining Tycoon
     [130342654546662] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sambung-kata.lua", status = "disabled" }, -- Sambung Kata
     [103159798148004] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/empang-indo.lua", status = "stable" }, -- Empang Indo
-    [8950496606] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/deadly-delivers.lua", status = "active" }, -- Deadly Delivery
+    [125810438250765] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/deadly-delivers.lua", status = "active" }, -- Deadly Delivery
     [83369512629707] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sawah-indo.lua", status = "stable" }, -- Sawah Indo
 }
 
