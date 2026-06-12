@@ -1,5 +1,5 @@
 local games = {
-    [140209132616484] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/water-empire.lua", -- Water Empire
+    [140209132616484] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/water-empire.lua", -- Water Empire
     [114115486822297] = "https://pastefy.app/Ksz9zj49/raw", -- Spin A Lucky Block For Soccer Cards
     [72774564502867] = "https://raw.githubusercontent.com/dhannxsazaraxhub/testajamok/refs/heads/main/lengkapi-kata.lua", -- Lengkapi Kata
     [114640202062357] = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/swingforabrainrot.lua", -- Swing Obby for a Brainrot
