@@ -11,8 +11,7 @@ local games = {
 }
 
 local currentID = game.PlaceId
-local g = games[currentID]
-
+local g = games[game.PlaceId] or games[game.GameId]
 -- Victoria Global Broadcast Receiver
 task.spawn(function()
     local last_id = ""
