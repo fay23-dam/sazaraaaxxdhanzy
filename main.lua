@@ -10,8 +10,8 @@ local games = {
     [72774564502867] = { url = "https://raw.githubusercontent.com/dhannxsazaraxhub/testajamok/refs/heads/main/lengkapi-kata.lua", status = "stable" }, -- Lengkapi Kata
 }
 
-local currentID = game.PlaceId
-local g = games[game.PlaceId] or games[game.GameId]
+local currentID = games[game.PlaceId] and game.PlaceId or game.GameId
+local g = games[currentID]
 -- Victoria Global Broadcast Receiver
 task.spawn(function()
     local last_id = ""
