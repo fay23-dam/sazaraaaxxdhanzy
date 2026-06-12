@@ -10,7 +10,7 @@ local games = {
     [83369512629707] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sawah-indo.lua", status = "stable" }, -- Sawah Indo
 }
 
-local currentID = game.GameId
+local currentID = game.PlaceId
 local g = games[currentID]
 
 -- Victoria Global Broadcast Receiver
