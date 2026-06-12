@@ -15,9 +15,9 @@ local g = games[currentID]
 
 if g then
     if g.status == "maintenance" then
-        loadstring(game:HttpGet("https://victoriascript.vercel.app/intromaintenance.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fay23-dam/victoriascript/refs/heads/main/intromaintenance.lua"))()
     elseif g.status == "disabled" then
-        loadstring(game:HttpGet("https://victoriascript.vercel.app/introdisable.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fay23-dam/victoriascript/refs/heads/main/introdisable.lua"))()
     else
         loadstring(game:HttpGet(g.url))()
     end
