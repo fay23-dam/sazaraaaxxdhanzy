@@ -1,5 +1,5 @@
 local games = {
-    [73814003954154] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/pickaxe-tycoon.lua", status = "active" }, -- Pickaxe Tycoon
+    [10081194651] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/pickaxe-tycoon.lua", status = "active" }, -- Pickaxe Tycoon
     [128784467030899] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/merge-a-nuke.lua", status = "active" }, -- Merge a Nuke
     [140209132616484] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/water-empire.lua", status = "active" }, -- Water Empire
     [114115486822297] = { url = "https://pastefy.app/Ksz9zj49/raw", status = "active" }, -- Spin A Lucky Block For Soccer Cards
