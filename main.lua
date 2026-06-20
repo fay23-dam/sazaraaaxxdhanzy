@@ -1,14 +1,15 @@
 local games = {
+    [73814003954153] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/pickaxe-tycoon.lua", status = "active" }, -- Pickaxe Tycoon
     [128784467030899] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/merge-a-nuke.lua", status = "active" }, -- Merge a Nuke
     [140209132616484] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/water-empire.lua", status = "active" }, -- Water Empire
     [114115486822297] = { url = "https://pastefy.app/Ksz9zj49/raw", status = "active" }, -- Spin A Lucky Block For Soccer Cards
-    [18680867089] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/ultimate-mining-tycoon.lua", status = "active" }, -- Ultimate Mining Tycoon
-    [130342654546662] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sambung-kata.lua", status = "disabled" }, -- Sambung Kata
-    [103159798148004] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/empang-indo.lua", status = "disabled" }, -- Empang Indo
     [83369512629707] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sawah-indo.lua", status = "stable" }, -- Sawah Indo
+    [103159798148004] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/empang-indo.lua", status = "disabled" }, -- Empang Indo
     [8950496606] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/deadly-delivery.lua", status = "active" }, -- Deadly Delivery
+    [130342654546662] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sambung-kata.lua", status = "disabled" }, -- Sambung Kata
     [72774564502867] = { url = "https://raw.githubusercontent.com/dhannxsazaraxhub/testajamok/refs/heads/main/lengkapi-kata.lua", status = "stable" }, -- Lengkapi Kata
     [114640202062357] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/swingforabrainrot.lua", status = "active" }, -- Swing Obby for a Brainrot
+    [18680867089] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/ultimate-mining-tycoon.lua", status = "active" }, -- Ultimate Mining Tycoon
 }
 
 local currentID = games[game.PlaceId] and game.PlaceId or game.GameId
