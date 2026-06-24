@@ -13,8 +13,24 @@ local games = {
     [130342654546662] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sambung-kata.lua", status = "disabled" }, -- Sambung Kata
 }
 
-local currentID = games[game.PlaceId] and game.PlaceId or game.GameId
-local g = games[currentID]
+-- Tunggu sampai Roblox berhasil memuat ID Game (menghindari ID = 0 saat baru masuk)
+while game.PlaceId == 0 or game.GameId == 0 do
+    task.wait(0.1)
+end
+
+local currentID = nil
+local g = nil
+
+-- Cek apakah PlaceId terdaftar di tabel
+if games[game.PlaceId] then
+    currentID = game.PlaceId
+    g = games[currentID]
+-- Jika tidak ada, cek apakah GameId (Universe) terdaftar di tabel
+elseif games[game.GameId] then
+    currentID = game.GameId
+    g = games[currentID]
+end
+
 -- Victoria Global Broadcast Receiver
 task.spawn(function()
     local last_id = ""
