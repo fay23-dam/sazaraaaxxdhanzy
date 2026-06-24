@@ -1,5 +1,5 @@
 local games = {
-    [139937995319382] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/librarian-tidy-up-roblox-library.lua", status = "active" }, -- Librarian Tidy Up Roblox Library
+    [10230860661] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/librarian-tidy-up-roblox-library.lua", status = "active" }, -- Librarian Tidy Up Roblox Library
     [10081194651] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/pickaxe-tycoon.lua", status = "active" }, -- Pickaxe Tycoon
     [128784467030899] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/merge-a-nuke.lua", status = "active" }, -- Merge a Nuke
     [140209132616484] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/water-empire.lua", status = "active" }, -- Water Empire
