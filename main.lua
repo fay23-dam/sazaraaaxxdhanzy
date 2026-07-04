@@ -1,4 +1,5 @@
 local games = {
+    [79268393072444] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/sell-lemons-.lua", status = "active" }, -- Sell Lemons!
     [82524183928567] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/build-a-soccer-squad-.lua", status = "active" }, -- Build A Soccer Squad!
     [10334731049] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/clean-the-supermarket.lua", status = "active" }, -- clean the supermarket
     [10230860661] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/librarian-tidy-up-roblox-library.lua", status = "active" }, -- Librarian Tidy Up Roblox Library
