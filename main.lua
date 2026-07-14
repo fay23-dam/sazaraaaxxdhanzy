@@ -1,4 +1,5 @@
 local games = {
+    [9777594324] = { url = "https://pastebin.com/raw/tPRdbt6V", status = "active" }, -- Kopdes Together
     [9897663111] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/backstreet-survival.lua", status = "active" }, -- Backstreet Survival
     [79268393072444] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/sell-lemons-.lua", status = "active" }, -- Sell Lemons!
     [82524183928567] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/build-a-soccer-squad-.lua", status = "active" }, -- Build A Soccer Squad!
