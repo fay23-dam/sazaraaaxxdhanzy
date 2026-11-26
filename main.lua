@@ -4,18 +4,18 @@ local games = {
     [79268393072444] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/sell-lemons-.lua", status = "active" }, -- Sell Lemons!
     [82524183928567] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/build-a-soccer-squad-.lua", status = "active" }, -- Build A Soccer Squad!
     [10334731049] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/clean-the-supermarket.lua", status = "disabled" }, -- clean the supermarket
-    [10230860661] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/librarian-tidy-up-roblox-library.lua", status = "active" }, -- Librarian Tidy Up Roblox Library
+    [10230860661] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/librarian-tidy-up-roblox-library.lua", status = "disabled" }, -- Librarian Tidy Up Roblox Library
     [10081194651] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/pickaxe-tycoon.lua", status = "active" }, -- Pickaxe Tycoon
     [128784467030899] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/merge-a-nuke.lua", status = "disabled" }, -- Merge a Nuke
     [140209132616484] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/water-empire.lua", status = "disabled" }, -- Water Empire
     [114115486822297] = { url = "https://pastefy.app/Ksz9zj49/raw", status = "disabled" }, -- Spin A Lucky Block For Soccer Cards
+    [72774564502867] = { url = "https://raw.githubusercontent.com/dhannxsazaraxhub/testajamok/refs/heads/main/lengkapi-kata.lua", status = "disabled" }, -- Lengkapi Kata
     [114640202062357] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/swingforabrainrot.lua", status = "disabled" }, -- Swing Obby for a Brainrot
-    [8950496606] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/deadly-delivery.lua", status = "active" }, -- Deadly Delivery
     [18680867089] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/ultimate-mining-tycoon.lua", status = "active" }, -- Ultimate Mining Tycoon
+    [8950496606] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/main/deadly-delivery.lua", status = "active" }, -- Deadly Delivery
     [103159798148004] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/empang-indo.lua", status = "disabled" }, -- Empang Indo
     [130342654546662] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sambung-kata.lua", status = "disabled" }, -- Sambung Kata
     [83369512629707] = { url = "https://raw.githubusercontent.com/fay23-dam/sazaraaax-script/refs/heads/main/sawah-indo.lua", status = "disabled" }, -- Sawah Indo
-    [72774564502867] = { url = "https://raw.githubusercontent.com/dhannxsazaraxhub/testajamok/refs/heads/main/lengkapi-kata.lua", status = "disabled" }, -- Lengkapi Kata
 }
 
 local currentID = games[game.PlaceId] and game.PlaceId or game.GameId
